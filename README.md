@@ -13,6 +13,6 @@ var color = GroveColourSensor(I2C_SDA, I2C_SCL);
 color.powerUp();
 
 setInterval(function() {
-   print('R=' + color.readColour(GroveColourSensor.RED) + ', G=' + color.readColour(GroveColourSensor.GREEN) + ', B=' + color.readColour(GroveColourSensor.BLUE));
+   print('R=' + color.readColour(GroveColours.RED) + ', G=' + color.readColour(GroveColours.GREEN) + ', B=' + color.readColour(GroveColours.BLUE));
 }, 1000);
 

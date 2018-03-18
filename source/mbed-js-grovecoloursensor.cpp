@@ -116,5 +116,16 @@ DECLARE_CLASS_CONSTRUCTOR(GroveColourSensor) {
 }
 
 void mbed_js_GroveColourSensor_setup() {
+    jerry_value_t enum_obj = jerry_create_object();
 
+    jerry_value_t enum_val;
+    jerry_value_t enum_key;
+
+    jerry_set_property(enum_obj, jerry_create_string((const jerry_char_t*)"RED"), jerry_create_number((double) GroveColourSensor::RED));
+    jerry_set_property(enum_obj, jerry_create_string((const jerry_char_t*)"GREEN"), jerry_create_number((double) GroveColourSensor::GREEN));
+    jerry_set_property(enum_obj, jerry_create_string((const jerry_char_t*)"BLUE"), jerry_create_number((double) GroveColourSensor::BLUE));
+    jerry_set_property(enum_obj, jerry_create_string((const jerry_char_t*)"CLEAR"), jerry_create_number((double) GroveColourSensor::CLEAR));
+
+    jerry_value_t global_obj = jerry_get_global_object();
+    jerry_set_property(global_obj, jerry_create_string((const jerry_char_t*)"GroveColours"), enum_obj);
 }
