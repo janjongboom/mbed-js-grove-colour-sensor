@@ -1,0 +1,9 @@
+{
+    "source": [
+        "."
+    ],
+    "includes": [
+        "mbed-js-grovecoloursensor/mbed-js-grovecoloursensor-lib.h"
+	],
+    "name": "grovecoloursensor"
+}

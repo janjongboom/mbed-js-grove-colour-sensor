@@ -1,0 +1,9 @@
+{
+    "name": "mbed-js-grove-colour-sensor",
+    "description": "Mbed.js driver for the Grove Colour Sensor",
+    "version": "1.0.0",
+    "author": "Jan Jongboom <janjongboom@gmail.com>",
+    "scripts": {
+        "postinstall": "echo 'ROOT=.' > .mbed && mbed deploy"
+    }
+}
