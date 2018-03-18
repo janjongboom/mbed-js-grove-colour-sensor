@@ -5,7 +5,7 @@
 
 #include "jerryscript-mbed-library-registry/wrap_tools.h"
 
-// @todo: add a reference to the GroveColourSensor header here
+#include "GroveColourSensor.hpp"
 
 DECLARE_CLASS_CONSTRUCTOR(GroveColourSensor);
 jerry_value_t mbed_js_wrap_native_object(GroveColourSensor* ptr);

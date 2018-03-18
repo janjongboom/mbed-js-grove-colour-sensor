@@ -3,7 +3,7 @@
 #include "jerryscript-mbed-util/logging.h"
 #include "jerryscript-mbed-library-registry/wrap_tools.h"
 
-// @todo: add a reference to the GroveColourSensor header here
+#include "GroveColourSensor.hpp"
 
 /**
  * GroveColourSensor#powerUp (native JavaScript method)
@@ -12,15 +12,15 @@ DECLARE_CLASS_FUNCTION(GroveColourSensor, powerUp) {
     CHECK_ARGUMENT_COUNT(GroveColourSensor, powerUp, (args_count == 0));
 
     if (args_count == 0) {
-    
-    
+
+
         uintptr_t ptr_val;
         jerry_get_object_native_handle(this_obj, &ptr_val);
-    
+
         GroveColourSensor* native_ptr = reinterpret_cast<GroveColourSensor*>(ptr_val);
-    
-    
-    
+
+
+
         native_ptr->powerUp();
         return jerry_create_undefined();
     }
@@ -33,15 +33,15 @@ DECLARE_CLASS_FUNCTION(GroveColourSensor, powerDown) {
     CHECK_ARGUMENT_COUNT(GroveColourSensor, powerDown, (args_count == 0));
 
     if (args_count == 0) {
-    
-    
+
+
         uintptr_t ptr_val;
         jerry_get_object_native_handle(this_obj, &ptr_val);
-    
+
         GroveColourSensor* native_ptr = reinterpret_cast<GroveColourSensor*>(ptr_val);
-    
-    
-    
+
+
+
         native_ptr->powerDown();
         return jerry_create_undefined();
     }
@@ -55,28 +55,15 @@ DECLARE_CLASS_FUNCTION(GroveColourSensor, readColour) {
 
     if (args_count == 1) {
         CHECK_ARGUMENT_TYPE_ON_CONDITION(GroveColourSensor, readColour, 0, number, (args_count == 1));
-    
+
         uintptr_t ptr_val;
         jerry_get_object_native_handle(this_obj, &ptr_val);
-    
+
         GroveColourSensor* native_ptr = reinterpret_cast<GroveColourSensor*>(ptr_val);
-    
-        Colour_t arg0 = Colour_t(jerry_get_number_value(args[0]));
-    
-        uint16_t result = native_ptr->readColour(arg0);
-        return jerry_create_number(result);
-    }
-    if (args_count == 1) {
-        CHECK_ARGUMENT_TYPE_ON_CONDITION(GroveColourSensor, readColour, 0, number, (args_count == 1));
-    
-        uintptr_t ptr_val;
-        jerry_get_object_native_handle(this_obj, &ptr_val);
-    
-        GroveColourSensor* native_ptr = reinterpret_cast<GroveColourSensor*>(ptr_val);
-    
+
         double jArg0 = jerry_get_number_value(args[0]);
         unsigned int arg0 = static_cast<unsigned int>(jArg0);
-    
+
         uint16_t result = native_ptr->readColour(arg0);
         return jerry_create_number(result);
     }
@@ -117,13 +104,13 @@ DECLARE_CLASS_CONSTRUCTOR(GroveColourSensor) {
     if (args_count == 2) {
         CHECK_ARGUMENT_TYPE_ON_CONDITION(GroveColourSensor, __constructor, 0, number, (args_count == 2));
         CHECK_ARGUMENT_TYPE_ON_CONDITION(GroveColourSensor, __constructor, 1, number, (args_count == 2));
-    
+
         PinName arg0 = PinName(jerry_get_number_value(args[0]));
         PinName arg1 = PinName(jerry_get_number_value(args[1]));
-    
+
         // Create the native object
         GroveColourSensor* native_obj = new GroveColourSensor(arg0, arg1);
-    
+
         return mbed_js_wrap_native_object(native_obj);
     }
 }
